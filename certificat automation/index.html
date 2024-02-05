@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Certificate Generator</title>
+</head>
+<body>
+    <h1>Generate PDF Certificates</h1>
+    <form id="certificate-form" enctype="multipart/form-data">
+        <div>
+            <label for="background-image">Upload Background Image (PNG):</label>
+            <input type="file" id="background-image" name="background-image" accept="image/png" required>
+        </div>
+        <div>
+            <label for="names-json">Upload Names JSON:</label>
+            <input type="file" id="names-json" name="names-json" accept=".json" required>
+        </div>
+        <button type="submit">Generate PDFs</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

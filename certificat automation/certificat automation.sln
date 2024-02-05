@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "certificat automation", "certificat automation.njsproj", "{91BB187D-2EDE-4115-9F2E-2A8F27E7AB2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91BB187D-2EDE-4115-9F2E-2A8F27E7AB2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91BB187D-2EDE-4115-9F2E-2A8F27E7AB2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91BB187D-2EDE-4115-9F2E-2A8F27E7AB2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91BB187D-2EDE-4115-9F2E-2A8F27E7AB2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D409FA98-2F5B-4F56-998C-C3BF3774B645}
+	EndGlobalSection
+EndGlobal
