@@ -6,7 +6,7 @@ from PIL import Image
 import json
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.lib import colors
+from reportlab.lib.colors import HexColor
 
 class CertificateGeneratorApp(QWidget):
     def __init__(self):
@@ -50,9 +50,14 @@ class CertificateGeneratorApp(QWidget):
             output_folder = generate_certificates(self.names_file, self.background_image, 'certificates', self.font_path)
             os.startfile(output_folder)
 
-def generate_certificate(name, background_image, output_path, font_path):
+def generate_certificate(name, background_image, output_folder, font_path):
     img = Image.open(background_image)
-    pdf = canvas.Canvas(output_path, pagesize=img.size)
+
+    # Save certificate as PNG
+    img.save(f"{output_folder}/{name}.png")
+
+    pdf_path = f"{output_folder}/{name}.pdf"
+    pdf = canvas.Canvas(pdf_path, pagesize=img.size)
 
     # Draw background image
     pdf.drawInlineImage(background_image, 0, 0, width=img.width, height=img.height)
@@ -60,20 +65,13 @@ def generate_certificate(name, background_image, output_path, font_path):
     # Register Montserrat thin font
     pdfmetrics.registerFont(TTFont('Montserrat-Thin', font_path))
 
-
     # Set the font to Montserrat thin and change text color to white
-    # Define your hexadecimal color
-    hex_color = "#8dc640"  # For example, pure white
-
-    # Set the fill color using the HexColor object
-    pdf.setFillColor(colors.HexColor(hex_color))
-
+    pdf.setFillColor(HexColor("#FFFFFF"))  # For example, pure white
     pdf.setFont("Montserrat-Thin", 120)
-
 
     # Position to place the name on the certificate
     x_position = img.width // 2
-    y_position = img.height // 2.25 
+    y_position = img.height // 2.2 
 
     # Centering the text on the page
     pdf.drawCentredString(x_position, y_position, name)
@@ -89,11 +87,9 @@ def generate_certificates(names_file, background_image, output_folder, font_path
 
     for name in names:
         if isinstance(name, str):
-            output_path = f"{output_folder}/{name}.pdf"
-            generate_certificate(name, background_image, output_path, font_path)
+            generate_certificate(name, background_image, output_folder, font_path)
         elif isinstance(name, dict) and 'name' in name:
-            output_path = f"{output_folder}/{name['name']}_certificate.pdf"
-            generate_certificate(name['name'], background_image, output_path, font_path)
+            generate_certificate(name['name'], background_image, output_folder, font_path)
 
     return output_folder
 
