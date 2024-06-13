@@ -27,12 +27,12 @@ def generate_certificate(name, code, background_image, output_path, name_font_pa
     y_position = img.height // 2
 
     # Draw name
-    pdf.setFont("NameFont", 150)  # Adjust the size as needed
-    pdf.drawCentredString(x_position, y_position - 100, name)  # Adjust y_position + offset as needed
+    pdf.setFont("NameFont", 200)  # Adjust the size as needed
+    pdf.drawCentredString(x_position, y_position - 50, name)  # Adjust y_position + offset as needed
 
     # Draw code
-    pdf.setFont("CodeFont", 70)  # Adjust the size for the code as needed
-    pdf.drawCentredString(x_position, y_position - 1010, code)  # Adjust y_position - offset as needed
+    pdf.setFont("CodeFont", 90)  # Adjust the size for the code as needed
+    pdf.drawCentredString(x_position, y_position - 1150, code)  # Adjust y_position - offset as needed
 
     pdf.save()
 
